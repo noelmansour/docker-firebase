@@ -11,3 +11,6 @@ RUN sudo npm install -g firebase-tools
 # Check node and npm versions
 RUN node --version
 RUN npm --version
+
+# Setup the firestore emulator
+RUN /usr/local/bin/firebase setup:emulators:firestore
