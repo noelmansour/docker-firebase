@@ -6,7 +6,7 @@ RUN curl -sSL "https://nodejs.org/dist/v8.16.0/node-v8.16.0-linux-x64.tar.xz" | 
 RUN curl https://www.npmjs.com/install.sh | sudo bash
 
 # Install firebase tools
-RUN sudo npm install -g firebase-tools@7.2.4
+RUN sudo npm install -g firebase-tools@7.4.0
 
 # Check node and npm versions
 RUN node --version
