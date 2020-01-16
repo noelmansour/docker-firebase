@@ -1,5 +1,16 @@
-# Firebase emulators require java
-FROM circleci/openjdk:8
+# Android sdk needed for flutter
+# (Indirectly) Java needed for firestore emulators
+FROM cirrusci/android-sdk:29
+
+# Set up flutter env variables
+ENV FLUTTER_HOME=${HOME}/sdks/flutter \
+    FLUTTER_ROOT=$FLUTTER_HOME \
+    FLUTTER_VERSION=stable
+ENV PATH ${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin
+
+# Install flutter
+RUN git clone --branch stable https://github.com/flutter/flutter.git ${FLUTTER_HOME}
+RUN flutter doctor
 
 # Use node v8.16.0
 RUN curl -sSL "https://nodejs.org/dist/v8.16.0/node-v8.16.0-linux-x64.tar.xz" | sudo tar --strip-components=2 -xJ -C /usr/local/bin/ node-v8.16.0-linux-x64/bin/node
