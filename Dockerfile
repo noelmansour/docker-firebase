@@ -24,4 +24,4 @@ RUN node --version
 RUN npm --version
 
 # Setup the firestore emulator
-RUN /usr/local/bin/firebase setup:emulators:firestore
+RUN sudo firebase setup:emulators:firestore
