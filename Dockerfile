@@ -25,3 +25,6 @@ RUN npm --version
 
 # Setup the firestore emulator
 RUN sudo firebase setup:emulators:firestore
+
+# Fetch/build a project with the same dependencies
+RUN git clone https://github.com/noelmansour/docker-flutter-firebase-starter.git ${HOME}/starter && cd ${HOME}/starter && flutter build apk --debug
