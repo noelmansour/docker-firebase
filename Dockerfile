@@ -10,6 +10,7 @@ ENV PATH ${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin
 
 # Install flutter
 RUN git clone --branch stable https://github.com/flutter/flutter.git ${FLUTTER_HOME}
+RUN flutter upgrade
 RUN flutter doctor
 
 # Use node v8.16.0
