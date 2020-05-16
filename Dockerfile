@@ -4,13 +4,11 @@ FROM cirrusci/android-sdk:29
 
 # Set up flutter env variables
 ENV FLUTTER_HOME=${HOME}/sdks/flutter \
-    FLUTTER_ROOT=$FLUTTER_HOME \
-    FLUTTER_VERSION=stable
+    FLUTTER_ROOT=$FLUTTER_HOME
 ENV PATH ${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin
 
 # Install flutter
-RUN git clone --branch stable https://github.com/flutter/flutter.git ${FLUTTER_HOME}
-RUN flutter upgrade
+RUN git clone --branch v1.12.13+hotfix.9 https://github.com/flutter/flutter.git ${FLUTTER_HOME} --depth=1
 RUN flutter doctor
 
 # Use node v8.16.0
