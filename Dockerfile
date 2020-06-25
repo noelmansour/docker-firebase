@@ -8,7 +8,7 @@ ENV FLUTTER_HOME=${HOME}/sdks/flutter \
 ENV PATH ${PATH}:${FLUTTER_HOME}/bin:${FLUTTER_HOME}/bin/cache/dart-sdk/bin
 
 # Install flutter
-RUN git clone --branch v1.12.13+hotfix.9 https://github.com/flutter/flutter.git ${FLUTTER_HOME} --depth=1
+RUN git clone --branch 1.17.4 https://github.com/flutter/flutter.git ${FLUTTER_HOME} --depth=1
 RUN flutter doctor
 
 # Use node v8.16.0
@@ -16,7 +16,7 @@ RUN curl -sSL "https://nodejs.org/dist/v8.16.0/node-v8.16.0-linux-x64.tar.xz" | 
 RUN curl https://www.npmjs.com/install.sh | sudo bash
 
 # Install firebase tools
-RUN sudo npm install -g firebase-tools@8.4.2
+RUN sudo npm install -g firebase-tools@8.4.3
 
 # Check node and npm versions
 RUN node --version
